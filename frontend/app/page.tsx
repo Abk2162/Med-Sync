@@ -126,15 +126,15 @@ export default function Home() {
         )}
 
         {results && (
-          <section className="mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <section className="mt-8 animate-in fade-in slide-in-from-bottom-4 duration-500" aria-live="polite" aria-atomic="true">
             <h2 className="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Structured Schedule</h2>
-            <ul className="space-y-3">
+            <ul className="space-y-3" role="list">
               {results.map((med, index) => (
-                <li key={index} className="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                <li key={index} className="bg-blue-50 p-4 rounded-lg border border-blue-100" tabIndex={0}>
                   <h3 className="font-bold text-gray-900 text-lg">{med.name}</h3>
                   <div className="flex justify-between mt-2 text-gray-700">
-                    <span><span className="font-medium">Dosage:</span> {med.dosage}</span>
-                    <span><span className="font-medium">Frequency:</span> {med.frequency}</span>
+                    <span aria-label={`Dosage: ${med.dosage}`}><span className="font-medium" aria-hidden="true">Dosage:</span> {med.dosage}</span>
+                    <span aria-label={`Frequency: ${med.frequency}`}><span className="font-medium" aria-hidden="true">Frequency:</span> {med.frequency}</span>
                   </div>
                 </li>
               ))}
