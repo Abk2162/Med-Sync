@@ -1,5 +1,8 @@
 flask>=3.0.0
 flask-cors>=4.0.0
+flask-compress>=1.14
 google-genai>=0.3.0
+google-cloud-storage>=2.14.0
 werkzeug>=3.0.0
 gunicorn>=21.2.0
+pytest>=8.0.0

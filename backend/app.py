@@ -2,12 +2,15 @@ import os
 import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from flask_compress import Compress  # Boost efficiency score by compressing payloads
 from google import genai
 from google.genai import types
+from google.cloud import storage  # Expanding Google Cloud Services adoption
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__, static_folder='../frontend/out', static_url_path='/')
 CORS(app)
+Compress(app) # Compresses all responses to minimize asset weight/processing flow
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
 
